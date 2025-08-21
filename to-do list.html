@@ -1,27 +1,35 @@
-<!DOCTYPE html>
-<html>
-
+ <!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>myto-do list</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To-do list</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <h1>My to-do list</h1>
-  <input type="text" placeholder="Type ur task here"/>
-  <br />
-  <br />
-  <button>Add</button>
+<div class="tdl">
+   <h1>My to-do list</h1>
+  <div class="task">
+   <input id="taskinput" placeholder="Type ur task here"/>
+   <button id="btn">Add</button>
+  </div>
   <hr />
-  <input type="checkbox" />
-  <label for="">Shopping</label>
-    <br />
-  <input type="checkbox" />
-  <label for="">cooking </label>
-    <br />
-  <input type="checkbox"/>
-  <label for="">Studying</label>
+    <ul class="todo-list">
+     <li id="lists">
+       <input type="checkbox"  id="task1"/>
+       <label for="">Shopping</label>
+     </li>
+     <li>
+       <input type="checkbox" />
+       <label for="">cooking </label>
+     </li>
+     <li>
+       <input type="checkbox"/>
+       <label for="">Studying</label>
+     </li>
+    </ul>
+</div>
 </body>
 
 </html>
