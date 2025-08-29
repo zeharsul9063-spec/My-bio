@@ -1,0 +1,142 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>To-do list</title>
+<style>
+ body {
+  background-color: wheat;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+}.tdl {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  color: blue;
+  font-size:20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #333;
+}.task {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#taskinput {
+  flex: 1;
+  padding: 14px 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
+  outline-offset: 3px;
+}
+
+#taskinput:focus {
+  outline-color: green;
+}
+
+#btn {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  padding: 14px 18px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#btn:hover,
+#btn:focus {
+  background-color: #065906;
+}.todo-list {
+  list-style: none;
+  padding: 0;
+  border: 2px solid #000;
+  border-radius: 12px;
+}*/.todo-list li {
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  color: #0a2670;
+}.todo-list li:last-child {
+  border-bottom: none;
+}.todo-list input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+/* Responsive for less than 600px*/
+@media (max-width: 600px) {
+  body {
+    padding: 12px 8px;
+  }.tdl {
+    padding: 16px 12px;
+  }
+  #taskinput {
+    font-size: 14px;
+    padding: 12px 10px;
+  }
+  #btn {
+    font-size: 14px;
+    padding: 12px 14px;
+  }.todo-list li {
+    font-size: 14px;
+    padding: 10px 14px;
+  }.todo-list input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+  }
+}
+
+/* for greater than 600px */
+@media (min-width: 600px) {
+  body {
+    align-items: center;
+    min-height: 100vh;
+  }
+}
+</style>
+</head>
+<body>
+<div class="tdl">
+   <h1>My to-do list</h1>
+  <div class="task">
+   <input id="taskinput" placeholder="Type ur task here"/>
+   <button id="btn">Add</button>
+  </div>
+  <hr />
+    <ul class="todo-list">
+     <li id="lists">
+       <input type="checkbox"  id="task1"/>
+       <label for="">Shopping</label>
+     </li>
+     <li>
+       <input type="checkbox" />
+       <label for="">cooking </label>
+     </li>
+     <li>
+       <input type="checkbox"/>
+       <label for="">Studying</label>
+     </li>
+    </ul>
+</div>
+</body>
+
+</html>
