@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>timer</title>
+</head>
+
+<body>
+   
+<script>
+tasks = []
+    function addTasks(task) {
+      tasks.push(task);
+    }
+   function showTasks(task) {
+      for(let i=0;i<tasks.length;i++){
+         console.log((i+1) + " " + tasks[i]);}
+    }
+  addTasks("coding");
+  addTasks("clean my room");
+  addTasks("Cooking")
+  showTasks();
+</script>
+</body>
+</html>
