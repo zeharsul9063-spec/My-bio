@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Task Manager</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 50px;
+      background-color: #e9ecef;
+      color: #333;
+    }
+    h2 {
+      text-align: center;
+      color: #007bff;
+    }
+    .tdl {
+      margin: 10px 15px;
+      padding: 20px;
+    }
+    #taskInput {
+      padding: 10px;
+      margin: 5px;
+      width: 230px;
+      border-radius: 5px;
+      border: 1px solid #ced4da; 
+      transition: border-color 0.3s;
+    }
+    #taskInput:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+    .task {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    section {
+      background-color: #578888aa;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 3px;
+      margin-bottom: 5px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 7px 10px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background-color: #218838; 
+      transform: scale(1.05);
+    }
+    #clearBtn {
+      background-color: #dc3545; 
+    }
+    #clearBtn:hover {
+      background-color: #c82333; 
+    }
+    #message {
+      text-align: center;
+      margin-top: 10px;
+      color: #28a745; 
+    }
+  </style>
+</head>
+<body>
+
+<h2>My Tasks</h2>
+<section>
+ <div class="task">
+   <input id="taskInput" placeholder="Type a task here..." />
+   <button id="addBtn">Add Task</button>
+ </div>
+ <ul id="taskList"></ul>
+ <button id="clearBtn">Clear All</button>
+ <p id="message"></p>
+</section>
+
+<script>
+    const input = document.getElementById('taskInput');
+    const addBtn = document.getElementById('addBtn');
+    const taskList = document.getElementById('taskList');
+    const clearBtn = document.getElementById('clearBtn');
+    const message = document.getElementById('message');
+
+    addBtn.addEventListener("click", addTask);
+    
+  
+
+    clearBtn.addEventListener("click", clearAllTasks);
+
+    function addTask() {
+        const task = input.value.trim();
+        if (task === '') {
+            showMessage('❗ Enter a task first!', 'danger');
+            return;
+        }
+    function clearAllTasks() {
+       if (confirm('Are you sure you want to clear all tasks?')) {
+        taskList.innerHTML = ''; 
+        showMessage('🗑️ All tasks cleared!'); 
+       }
+   }
+   
+
+        const li = document.createElement('li');
+        li.textContent = task;
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = '❌';
+        deleteBtn.addEventListener("click", () => {
+            taskList.removeChild(li);
+            showMessage('✅ Task removed!', 'success');
+        });
+
+        li.appendChild(deleteBtn);
+        taskList.appendChild(li);
+
+        
+                showMessage('✅ Task added!', 'success');
+        input.value = '';
+        input.focus();     
+    }
+
+    function clearAllTasks() {
+        if (taskList.children.length === 0) {
+            showMessage('❗ No tasks to clear!', 'danger');
+            return;
+        }
+
+        const confirmation = confirm('Are you sure you want to clear all tasks?');
+        if (confirmation) {
+            taskList.innerHTML = '';
+            showMessage('✅ All tasks cleared!', 'success');
+        }
+    }
+        setTimeout(() => message.textContent = '', 3000); 
+    
+</script>
+
+</body>
+</html>
